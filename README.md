@@ -4,7 +4,7 @@
 Quickly get IP, Prefix, and ASN Information at the command-line.
 <br/>
 <a href="https://github.com/checktheroads/whodat/actions?query=workflow%3Atest">
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/checktheroads/whodat/test?&tyle=for-the-badge">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/checktheroads/whodat/test?style=for-the-badge">
 </a>
 </div>
 
