@@ -28,7 +28,7 @@ func detectColorSupport() bool {
 	out, err := exec.Command("tput", "colors").CombinedOutput()
 	if err != nil {
 		fmt.Println("Error detecting color support")
-		os.Exit(1)
+		return false
 	}
 	r := string(out)
 	return len(r) > 0
