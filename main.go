@@ -219,7 +219,6 @@ func handleIP(ctx *cli.Context, ip string) {
 	ctx.String("    %s%s\n", whiteBold("AS"), cyanBold(ipDetail.ASN))
 	ctx.String("\n")
 	ctx.String("    %s %s (%s)\n", gray("Prefix:"), blueBold(ipDetail.Prefix), gray(ipDetail.Name))
-	ctx.String("    %s %s\n", gray("Allocation:"), greenBold(ipDetail.Allocation))
 	ctx.String("    %s %s\n", gray("RIR:"), redBold(ipDetail.RIR))
 }
 
@@ -241,7 +240,6 @@ func handlePrefix(ctx *cli.Context, pfx string) {
 	}
 
 	ctx.String("\n")
-	ctx.String("    %s\n", gray("Allocation: ")+greenBold(prefixDetail.Allocation))
 	ctx.String("    %s\n", gray("RIR: ")+redBold(prefixDetail.RIR))
 }
 

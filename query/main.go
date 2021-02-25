@@ -13,7 +13,7 @@ import (
 	GJson "github.com/tidwall/gjson"
 )
 
-// AsnDetail describes a bgpview.io /asn/<asn> response.
+// AsnDetail describes details of an ASN.
 type AsnDetail struct {
 	ASN          int64
 	Org          string
@@ -22,32 +22,31 @@ type AsnDetail struct {
 	Website      string
 }
 
-// PrefixOrigin described a bgpview.io prefix origin.
+// PrefixOrigin describes a prefix origin AS & details.
 type PrefixOrigin struct {
-	ASN int64
-	Org string
+	ASN  int64
+	Org  string
+	Name string
 }
 
-// PrefixDetail describes a bgpview.io /prefix/<prefix> response.
+// PrefixDetail describes details of a prefix.
 type PrefixDetail struct {
-	Org        string
-	Origins    []PrefixOrigin
-	Name       string
-	Prefix     string
-	Allocation string
-	RIR        string
+	Org     string
+	Origins []PrefixOrigin
+	Name    string
+	Prefix  string
+	RIR     string
 }
 
-// IPDetail describes a bgpview.io /ip/<ip> response.
+// IPDetail describes details of an IP address.
 type IPDetail struct {
-	Allocation string
-	RIR        string
-	IP         string
-	PTR        string
-	ASN        int64
-	Prefix     string
-	Org        string
-	Name       string
+	RIR    string
+	IP     string
+	PTR    string
+	ASN    int64
+	Prefix string
+	Org    string
+	Name   string
 }
 
 // ASNPrefixes is a set of IPv4 & IPv6 post-parsed & sorted addresses.
@@ -58,8 +57,8 @@ type ASNPrefixes struct {
 
 const requestTimeout int = 15
 
-const urlBGPView = "https://api.bgpview.io/"
 const urlBGPStuff = "https://bgpstuff.net/"
+const urlWhoDat = "https://bgptoolsrestapi-checktheroads.vercel.app/api/"
 
 var httpClient *http.Client
 var headers map[string]string
@@ -121,33 +120,27 @@ func request(u string, p ...string) (b string, e error) {
 	return string(body), nil
 }
 
-func bgpViewJSON(p ...string) (r GJson.Result, e error) {
-
-	b, err := request(urlBGPView, p...)
-
-	r = GJson.Parse(b)
-
-	if err != nil {
-		return r, err
-	}
-
-	if r.Get("status").Str != "ok" {
-		return r, fmt.Errorf(r.Get("status_message").Str)
-	}
-
-	return r, nil
-}
-
 func bgpStuffJSON(p ...string) (r GJson.Result, e error) {
 	headers = make(map[string]string)
 	headers["Content-Type"] = "application/json"
 	b, err := request(urlBGPStuff, p...)
 
-	r = GJson.Parse(b)
-
 	if err != nil {
 		return r, err
 	}
+
+	r = GJson.Parse(b)
+
+	return r, nil
+}
+
+func whoDatJSON(path string, target string) (r GJson.Result, e error) {
+	b, err := request(urlWhoDat, path, fmt.Sprintf("?target=%s", target))
+	if err != nil {
+		return r, err
+	}
+
+	r = GJson.Parse(b)
 
 	return r, nil
 }
