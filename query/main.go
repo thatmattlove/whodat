@@ -58,7 +58,7 @@ type ASNPrefixes struct {
 const requestTimeout int = 15
 
 const urlBGPStuff = "https://bgpstuff.net/"
-const urlWhoDat = "https://bgptoolsrestapi-checktheroads.vercel.app/api/"
+const urlWhoDat = "https://whodat.allroads.io/api/"
 
 var httpClient *http.Client
 var headers map[string]string
