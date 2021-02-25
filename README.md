@@ -3,6 +3,7 @@
 <br/>
 Quickly get IP, Prefix, and ASN Information at the command-line.
 <br/>
+<br/>
 <a href="https://github.com/checktheroads/whodat/actions?query=workflow%3ATest">
   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/checktheroads/whodat/Test?style=for-the-badge">
 </a>
@@ -103,5 +104,17 @@ whodat AS13335 -p
         ...
 
 ```
+
+## About `whodat` & Credits
+
+`whodat` is nothing more than a wrapper around services other people have created. `whodat` fetches data from the following sources:
+
+- [bgp.tools](https://bgp.tools)
+- [bgpstuff.net](https://bgpstuff.net)
+- [RIPEStat](https://stat.ripe.net)
+- [PeeringDB](https://peeringdb.com)
+- [Cloudflare](https://cloudflare.com)
+
+Most of the data is fetched from a serverless function (see [`whodat` server](https://github.com/checktheroads/whodat-server)), which is what does the actual querying of each of the above resources. The data is cached at the server level to reduce load on those services and improve response times.
 
 [![GitHub](https://img.shields.io/github/license/checktheroads/whodat?color=000000&style=for-the-badge)](https://github.com/checktheroads/whodat/blob/main/LICENSE)
