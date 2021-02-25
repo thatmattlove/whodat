@@ -13,8 +13,12 @@ import (
 	"github.com/mkideal/cli"
 )
 
+// Version is whodat's current version.
+const Version = "v0.0.3"
+
 type argT struct {
 	Help        bool `cli:"!h,help" usage:"Show this Help Menu" json:"-"`
+	Version     bool `cli:"v,version" usage:"Show whodat's version"`
 	GetPrefixes bool `cli:"p,prefixes" usage:"Get ASN's Advertised Prefixes" dft:"false"`
 }
 
@@ -246,6 +250,12 @@ func main() {
 
 	os.Exit(cli.Run(new(argT), func(ctx *cli.Context) error {
 		argv := ctx.Argv().(*argT)
+
+		if argv.Version {
+			ctx.String("%s %s", whiteBold("whodat"), magentaBold(Version))
+			return nil
+		}
+
 		args := os.Args[1:]
 
 		_, nw, err := net.ParseCIDR(args[0])
