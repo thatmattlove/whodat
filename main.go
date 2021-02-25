@@ -27,7 +27,6 @@ func (argv *argT) AutoHelp() bool {
 func detectColorSupport() bool {
 	out, err := exec.Command("tput", "colors").CombinedOutput()
 	if err != nil {
-		fmt.Println("Error detecting color support")
 		return false
 	}
 	r := string(out)
