@@ -4,14 +4,14 @@
 Quickly get IP, Prefix, and ASN Information at the command-line.
 <br/>
 <br/>
-<a href="https://github.com/checktheroads/whodat/actions?query=workflow%3ATest">
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/checktheroads/whodat/Test?style=for-the-badge">
+<a href="https://github.com/thatmattlove/whodat/actions?query=workflow%3ATest">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/thatmattlove/whodat/Test?style=for-the-badge">
 </a>
 </div>
 
 ## Usage
 
-### Download the latest [release](https://github.com/checktheroads/whodat/releases/latest)
+### Download the latest [release](https://github.com/thatmattlove/whodat/releases/latest)
 
 There are multiple builds of the release, for different CPU architectures/platforms:
 
@@ -115,6 +115,6 @@ whodat AS13335 -p
 - [PeeringDB](https://peeringdb.com)
 - [Cloudflare](https://cloudflare.com)
 
-Most of the data is fetched from a serverless function (see [`whodat` server](https://github.com/checktheroads/whodat-server)), which is what does the actual querying of each of the above resources. The data is cached at the server level to reduce load on those services and improve response times.
+Most of the data is fetched from a serverless function (see [`whodat` server](https://github.com/thatmattlove/whodat-server)), which is what does the actual querying of each of the above resources. The data is cached at the server level to reduce load on those services and improve response times.
 
-[![GitHub](https://img.shields.io/github/license/checktheroads/whodat?color=000000&style=for-the-badge)](https://github.com/checktheroads/whodat/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/github/license/thatmattlove/whodat?color=000000&style=for-the-badge)](https://github.com/thatmattlove/whodat/blob/main/LICENSE)

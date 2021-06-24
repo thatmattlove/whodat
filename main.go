@@ -8,9 +8,9 @@ import (
 	"os/exec"
 	"regexp"
 
-	q "github.com/checktheroads/whodat/query"
 	"github.com/gookit/color"
 	"github.com/mkideal/cli"
+	q "github.com/thatmattlove/whodat/query"
 )
 
 // Version is whodat's current version.

@@ -1,4 +1,4 @@
-module github.com/checktheroads/whodat
+module github.com/thatmattlove/whodat
 
 go 1.15
 

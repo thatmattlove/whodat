@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/checktheroads/whodat/query"
+	"github.com/thatmattlove/whodat/query"
 )
 
 func TestMain(t *testing.T) {
