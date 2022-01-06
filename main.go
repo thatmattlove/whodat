@@ -14,7 +14,7 @@ import (
 )
 
 // Version is whodat's current version.
-const Version = "v0.0.3"
+const Version = "v0.0.4"
 
 type argT struct {
 	Help        bool `cli:"!h,help" usage:"Show this Help Menu" json:"-"`
